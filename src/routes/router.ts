@@ -5,7 +5,7 @@ const routes = express.Router();
 
 routes.get('/', (req: express.Request, res: express.Response) => {
   res.send(
-    'this is api route!! add /images?name=(your file name)&width=(image width)&height=(your file height) to start'
+    'this is api route!! add /images?name=(your file name)&width=(image width)&height=(image height) to start'
   );
 });
 routes.use(images);

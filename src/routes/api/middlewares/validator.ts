@@ -7,9 +7,9 @@ const validator = (
   next: Function
 ): void => {
   const name = req.query.name as unknown as string;
-  const width = parseInt((req.query.width as unknown) as string);
-  const height = parseInt((req.query.height as unknown) as string);
-  console.log(typeof name, typeof width, typeof height);
+  const width = (req.query.width as unknown) as string;
+  const height = (req.query.height as unknown) as string;
+  console.log(name, width, height);
   if (name === '' || typeof name !== 'string') {
     res.send('enter valid file name');
     return;
@@ -24,17 +24,19 @@ const validator = (
     return;
   }
   if (
-    width <= 0 ||
-    typeof width !== 'number'
-  ) {
+    parseInt((req.query.width as unknown) as string) <= 0 ||
+    typeof width !== 'string' ||
+    width === ''
+   ) {
     res.send('enter valid dimentions');
     console.log('invalid dimentions1');
     return;
   }
   if (
-    height <= 0 ||
-    typeof height !== 'number'
-  ) {
+    parseInt((req.query.height as unknown) as string) <= 0 ||
+    typeof height !== 'string' ||
+    height === ''
+   ) {
     res.send('enter valid dimentions');
     console.log('invalid dimentions2');
     return;
