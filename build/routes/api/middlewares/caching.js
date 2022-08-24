@@ -60,7 +60,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var fs_1 = __importStar(require("fs"));
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+//  cache function is similar to validator but instead of checking for input validity
+//  it checks whether the requested file has already been processed or not
+//  if it was already processed it gets restored from storage and sent as respose like the resizer function in images file
+//  if there is no cache file it proceeds to the next function where a new image is to be processed
 var cache = function (req, res, next) { return __awaiter(void 0, void 0, void 0, function () {
     var name, width, height, cached;
     return __generator(this, function (_a) {
@@ -84,4 +87,5 @@ var cache = function (req, res, next) { return __awaiter(void 0, void 0, void 0,
         }
     });
 }); };
+//  exporting cache as middleware to images file
 exports.default = cache;

@@ -39,11 +39,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//  importing modules
 var supertest_1 = __importDefault(require("supertest"));
 var __1 = __importDefault(require(".."));
+//  testing '/' and '/api' endpoints
 var req = (0, supertest_1.default)(__1.default);
 describe('Testing endpoints for index', function () {
-    it('tests the main endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+    it('Tests the main endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -55,7 +57,7 @@ describe('Testing endpoints for index', function () {
             }
         });
     }); });
-    it('tests the /api endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+    it('Tests the /api endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
             switch (_a.label) {

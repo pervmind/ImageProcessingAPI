@@ -39,24 +39,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//  importing express to set images as router
+//  importing all middlewares: logger, validator, cache
+//  importing sharp and fs modules to use for image processing
 var express_1 = __importDefault(require("express"));
 var logger_1 = __importDefault(require("./middlewares/logger"));
 var validator_1 = __importDefault(require("./middlewares/validator"));
 var caching_1 = __importDefault(require("./middlewares/caching"));
 var sharp_1 = __importDefault(require("sharp"));
 var fs_1 = require("fs");
+//  setting images as router
 var images = express_1.default.Router();
+//  creating  sharper functions for creating the thumbnail image
 var sharper = function (name, width, height) { return __awaiter(void 0, void 0, void 0, function () {
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, (0, sharp_1.default)("images/full/".concat(name, ".jpg")).resize(width, height).toFile("images/thumb/".concat(name, "-").concat(width, "-").concat(height, ".jpg"))];
+            case 0: return [4 /*yield*/, (0, sharp_1.default)("images/full/".concat(name, ".jpg"))
+                    .resize(width, height)
+                    .toFile("images/thumb/".concat(name, "-").concat(width, "-").concat(height, ".jpg"))];
             case 1:
                 _a.sent();
                 return [2 /*return*/];
         }
     });
 }); };
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+//  creating resizer that uses sharper to create the image, save it , read it then send it as response after changing content type to image so that the image would load
 var resizer = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var name_1, width, height, thumb, err_1;
     return __generator(this, function (_a) {
@@ -83,5 +90,11 @@ var resizer = function (req, res) { return __awaiter(void 0, void 0, void 0, fun
         }
     });
 }); };
+//  listing middlewares
+//  logger logs the url visited ,
+//  validator checks if info typed by user is valid for processing
+//  cache checks if the requested image with specified dimentions already exists to send it as response
+//  if the image does not exist in the thumb folder it proceeds to resizer where a new image will be created
 images.use('/images', logger_1.default, validator_1.default, caching_1.default, resizer);
+//  exporting images for the router and sharper for being tested
 exports.default = { images: images, sharper: sharper };

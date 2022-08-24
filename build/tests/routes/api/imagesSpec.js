@@ -39,13 +39,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+//  importing modules
 var __1 = __importDefault(require("../../.."));
 var supertest_1 = __importDefault(require("supertest"));
 var images_1 = __importDefault(require("../../../routes/api/images"));
 var fs_1 = __importDefault(require("fs"));
+// testing endpoints for '/images'
 var req = (0, supertest_1.default)(__1.default);
-describe('test endpoints for images', function () {
-    it('tests /image endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
+describe('Test endpoints for images', function () {
+    it('Tests /image endpoint', function () { return __awaiter(void 0, void 0, void 0, function () {
         var res;
         return __generator(this, function (_a) {
             switch (_a.label) {
@@ -58,8 +60,9 @@ describe('test endpoints for images', function () {
         });
     }); });
 });
-describe('testing images funstions', function () {
-    it('testing resizer functoin', function () { return __awaiter(void 0, void 0, void 0, function () {
+//  testing the sharp function for creating processed images
+describe('Testing images funstions', function () {
+    it('Testing resizer functoin', function () { return __awaiter(void 0, void 0, void 0, function () {
         var name, width, height, fileExistance;
         return __generator(this, function (_a) {
             switch (_a.label) {
