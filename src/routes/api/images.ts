@@ -31,6 +31,7 @@ const resizer = async (
     const name = req.query.name as unknown as string;
     const width = parseInt(req.query.width as unknown as string);
     const height = parseInt(req.query.height as unknown as string);
+    console.log(height);
     await sharper(name, width, height);
     const thumb = await fsPromises.readFile(
       `images/thumb/${name}-${width}-${height}.jpg`
