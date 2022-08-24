@@ -78,7 +78,6 @@ var cache = function (req, res, next) { return __awaiter(void 0, void 0, void 0,
                 cached = _a.sent();
                 res.writeHead(200, { 'Content-type': 'image/jpg' });
                 res.end(cached);
-                console.log('cache file found');
                 return [2 /*return*/];
             case 2:
                 console.log('no cache');

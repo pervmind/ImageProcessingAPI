@@ -114,6 +114,7 @@ var resizer = function (req, res) { return __awaiter(void 0, void 0, void 0, fun
             case 3:
                 err_1 = _a.sent();
                 console.error('processing failed');
+                res.status(500).send('processing failed');
                 return [3 /*break*/, 4];
             case 4: return [2 /*return*/];
         }
