@@ -38,7 +38,7 @@ const validator = (
     width === '' ||
     !digitsOnly(width)
   ) {
-    res.status(500).send('invalid width dimentions');
+    res.status(500).send('invalid width dimensions');
     return;
   }
   if (
@@ -47,7 +47,7 @@ const validator = (
     height === '' ||
     !digitsOnly(height)
   ) {
-    res.status(500).send('invalid height dimentions');
+    res.status(500).send('invalid height dimensions');
     return;
   }
   next();
