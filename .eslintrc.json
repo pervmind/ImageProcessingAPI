@@ -5,6 +5,7 @@
     },
     "extends": "standard-with-typescript",
     "overrides": [
+        {"files":[ "src/**/*.ts"]}
     ],
     "parserOptions": {
         "ecmaVersion": "latest",

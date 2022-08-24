@@ -4,7 +4,7 @@
   "description": "processes images to make thumbnails with custon size",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier ./src --write",
+    "prettier": "npx prettier src/**/*.ts --write",
     "lint": "npx eslint src/index.ts",
     "build": "npx tsc",
     "jasmine": "jasmine",

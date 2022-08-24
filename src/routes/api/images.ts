@@ -6,7 +6,7 @@ import logger from './middlewares/logger';
 import validator from './middlewares/validator';
 import cache from './middlewares/caching';
 import sharp from 'sharp';
-import { promises as fs } from 'fs';
+import fs, { promises as fsPromises } from 'fs';
 //  setting images as router
 const images = express.Router();
 //  creating  sharper functions for creating the thumbnail image
@@ -15,6 +15,9 @@ const sharper = async (
   width: number,
   height: number
 ): Promise<void> => {
+  if (!fs.existsSync('images/thumb')) {
+    await fsPromises.mkdir('images/thumb');
+  }
   await sharp(`images/full/${name}.jpg`)
     .resize(width, height)
     .toFile(`images/thumb/${name}-${width}-${height}.jpg`);
@@ -29,7 +32,7 @@ const resizer = async (
     const width = parseInt(req.query.width as unknown as string);
     const height = parseInt(req.query.height as unknown as string);
     await sharper(name, width, height);
-    const thumb = await fs.readFile(
+    const thumb = await fsPromises.readFile(
       `images/thumb/${name}-${width}-${height}.jpg`
     );
     res.writeHead(200, { 'Content-type': 'image/jpg' });

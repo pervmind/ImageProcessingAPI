@@ -10,29 +10,32 @@ var validator = function (req, res, next) {
     var width = req.query.width;
     var height = req.query.height;
     console.log(name, width, height);
+    if (typeof name === 'undefined' &&
+        typeof width === 'undefined' &&
+        typeof height === 'undefined') {
+        res.send('start adding inputs');
+        return;
+    }
     if (name === '' || typeof name !== 'string') {
-        res.send('enter valid file name');
+        res.status(500).send('invalid file name');
         return;
     }
     if (!fs_1.default.existsSync("images/full/".concat(name, ".jpg"))) {
-        res.status(500);
-        res.send('invalid file name');
+        res.status(500).send('invalid file name');
         console.log('file doesnt exist');
         return;
     }
     if (parseInt(req.query.width) <= 0 ||
         typeof width !== 'string' ||
         width === '') {
-        res.status(500);
-        res.send('invalid width dimentions');
+        res.status(500).send('invalid width dimentions');
         console.log('invalid dimentions (width)');
         return;
     }
     if (parseInt(req.query.height) <= 0 ||
         typeof height !== 'string' ||
         height === '') {
-        res.status(500);
-        res.send('invalid height dimentions');
+        res.status(500).send('invalid height dimentions');
         console.log('invalid dimentions (height)');
         return;
     }
