@@ -5,6 +5,7 @@
 * Introduction
 * Info
 * How to use
+* Scripts
 * Social Media links
 
 ### Introduction
@@ -38,6 +39,14 @@ node build/index.js
 7. Now add (/images?name=(filename without extention)&width=(image requested width)&height=(image requested height) to the url to start processing images.
 8. processed images will be saved in the images/thumb directory.
 9. Have Fun.
+
+### Scripts
+
+|Scripts| Functionality|
+|-------|:------------:|
+|npm run test|runs jasmine tests|
+|npm run build|compiles ts to js|
+|npm run start| starts server using nodman|
 
 ### Social Media links
 
