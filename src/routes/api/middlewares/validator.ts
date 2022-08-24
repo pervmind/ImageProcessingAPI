@@ -5,7 +5,7 @@ import fs from 'fs';
 //  This function checks that the query string is all digits ref = https://bobbyhadz.com/blog/javascript-check-if-string-contains-only-digits#:~:text=Use%20the%20test()%20method,only%20digits%20and%20false%20otherwise.
 const digitsOnly = (string: string): boolean => {
   return /^[0-9]+$/.test(string);
-}
+};
 //  validator function takes the query strings from the endpoint and checks for input validity for the next middleware
 const validator = (
   req: express.Request,
