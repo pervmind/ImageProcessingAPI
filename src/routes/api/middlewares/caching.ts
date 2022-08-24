@@ -21,7 +21,6 @@ const cache = async (
     );
     res.writeHead(200, { 'Content-type': 'image/jpg' });
     res.end(cached);
-    console.log('cache file found');
     return;
   }
   console.log('no cache');

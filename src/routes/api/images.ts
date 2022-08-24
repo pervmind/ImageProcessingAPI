@@ -39,6 +39,7 @@ const resizer = async (
     res.end(thumb);
   } catch (err) {
     console.error('processing failed');
+    res.status(500).send('processing failed');
   }
 };
 //  listing middlewares

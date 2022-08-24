@@ -25,7 +25,6 @@ const validator = (
   }
   if (!fs.existsSync(`images/full/${name}.jpg`)) {
     res.status(500).send('invalid file name');
-    console.log('file doesnt exist');
     return;
   }
   if (
@@ -34,7 +33,6 @@ const validator = (
     width === ''
   ) {
     res.status(500).send('invalid width dimentions');
-    console.log('invalid dimentions (width)');
     return;
   }
   if (
@@ -43,7 +41,6 @@ const validator = (
     height === ''
   ) {
     res.status(500).send('invalid height dimentions');
-    console.log('invalid dimentions (height)');
     return;
   }
   next();
