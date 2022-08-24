@@ -21,6 +21,7 @@ var CustomProcessor = /** @class */ (function (_super) {
     function CustomProcessor() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    // eslint-disable-next-line @typescript-eslint/space-before-function-paren
     CustomProcessor.prototype.displayJasmineStarted = function (info, log) {
         return "".concat(log);
     };
@@ -29,7 +30,9 @@ var CustomProcessor = /** @class */ (function (_super) {
 jasmine.getEnv().clearReporters();
 jasmine.getEnv().addReporter(new jasmine_spec_reporter_1.SpecReporter({
     spec: {
+        // eslint-disable-next-line comma-dangle
         displayStacktrace: jasmine_spec_reporter_1.StacktraceOption.NONE,
     },
+    // eslint-disable-next-line comma-dangle
     customProcessors: [CustomProcessor],
 }));

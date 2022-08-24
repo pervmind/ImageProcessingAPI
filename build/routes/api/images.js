@@ -102,6 +102,7 @@ var resizer = function (req, res) { return __awaiter(void 0, void 0, void 0, fun
                 name_1 = req.query.name;
                 width = parseInt(req.query.width);
                 height = parseInt(req.query.height);
+                console.log(height);
                 return [4 /*yield*/, sharper(name_1, width, height)];
             case 1:
                 _a.sent();
