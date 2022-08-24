@@ -25,11 +25,11 @@ To run the API on your local machine follow the following steps:
 2. Install [Node.js](https://nodejs.org/en/download/) on your machine.
 3. Open a terminal window in the root directory of the API.
 4. You can run the local server using one of the two methods.
-⋅⋅⋅ type npm run start which will use nodemon to start the server
+* type npm run start which will use nodemon to start the server
 ```
 npm run start
 ```
-⋅⋅⋅ type node build/index.js which will run the javascript file directly
+* type node build/index.js which will run the javascript file directly
 ```
 node build/index.js
 ```
