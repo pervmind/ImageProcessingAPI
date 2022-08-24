@@ -1,7 +1,11 @@
+//  importing modules
 import express from 'express';
 import fs, { promises as fsPromises } from 'fs';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+//  cache function is similar to validator but instead of checking for input validity
+//  it checks whether the requested file has already been processed or not
+//  if it was already processed it gets restored from storage and sent as respose like the resizer function in images file
+//  if there is no cache file it proceeds to the next function where a new image is to be processed
 const cache = async (
     req: express.Request,
     res: express.Response,
@@ -25,5 +29,5 @@ const cache = async (
     console.log('no cache');
     next()
 }
-
+//  exporting cache as middleware to images file
 export default cache;

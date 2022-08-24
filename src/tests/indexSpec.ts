@@ -1,6 +1,7 @@
+//  importing modules
 import supertest from 'supertest';
 import app from '..';
-
+//  testing '/' and '/api' endpoints
 const req = supertest(app);
 
 describe('Testing endpoints for index', () => {

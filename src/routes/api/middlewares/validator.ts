@@ -1,6 +1,7 @@
+//  importing modules
 import express from 'express';
 import fs from 'fs';
-
+//  validator function takes the query strings from the endpoint and checks for input validity for the next middleware
 const validator = (
   req: express.Request,
   res: express.Response,
@@ -46,5 +47,5 @@ const validator = (
   }
   next();
 };
-
+//  exporting for images file
 export default validator;
