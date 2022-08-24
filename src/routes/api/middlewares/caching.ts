@@ -6,7 +6,7 @@ const cache = async (
     req: express.Request,
     res: express.Response,
     next: Function
-) => {
+): Promise<void> => {
     const name = req.query.name as unknown as string;
     const width = parseInt((req.query.width as unknown) as string);
     const height = parseInt((req.query.height as unknown) as string);

@@ -19,7 +19,8 @@ const validator = (
       `images/full/${name}.jpg`
     )
   ) {
-    res.send('enter valid file name');
+    res.status(500);
+    res.send('invalid file name');
     console.log('file doesnt exist');
     return;
   }
@@ -28,8 +29,9 @@ const validator = (
     typeof width !== 'string' ||
     width === ''
    ) {
-    res.send('enter valid dimentions');
-    console.log('invalid dimentions1');
+    res.status(500);
+    res.send('invalid width dimentions')
+    console.log('invalid dimentions (width)');
     return;
   }
   if (
@@ -37,8 +39,9 @@ const validator = (
     typeof height !== 'string' ||
     height === ''
    ) {
-    res.send('enter valid dimentions');
-    console.log('invalid dimentions2');
+    res.status(500)
+    res.send('invalid height dimentions');
+    console.log('invalid dimentions (height)');
     return;
   }
   next();

@@ -4,7 +4,7 @@ import routes from './routes/router';
 const app = express();
 const port = 3000;
 
-app.get('/', (req: express.Request, res: express.Response) => {
+app.get('/', (req: express.Request, res: express.Response): void => {
   res.send('This is the main route!! visit /api to start');
 });
 app.use('/api', routes);
@@ -12,3 +12,5 @@ app.use('/api', routes);
 app.listen(port, () => {
   console.log(`server is now running on localhost:${port}`);
 });
+
+export default app;
